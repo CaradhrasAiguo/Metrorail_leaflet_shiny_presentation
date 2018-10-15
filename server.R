@@ -11,13 +11,15 @@ library(dplyr)
 library(shiny)
 library(leaflet)
 
-dir<-"C:/HY/Projects/Washington_Metro_leaflet"
-dfConcise<-read.csv(paste(dir, "Concise_stations.csv", sep="/"),
-                    stringsAsFactors = FALSE)
+# dir<-"C:/HY/Projects/Washington_Metro_leaflet"
+# dfConcise<-read.csv(paste(dir, "Concise_stations.csv", sep="/"),
+#                     stringsAsFactors = FALSE)
+dfConcise<-read.csv("concise_stations.csv", stringsAsFactors = FALSE)
 dfConcise<-dfConcise %>% mutate(Opened = as.Date(Opened))
-# lstLines<-lstRes$lines
-dfLines<-read.csv(paste(dir, "Stations_line_travel_order.csv", sep="/"),
-                  stringsAsFactors = FALSE)
+
+# dfLines<-read.csv(paste(dir, "Stations_line_travel_order.csv", sep="/"),
+#                   stringsAsFactors = FALSE)
+dfLines<-read.csv("stations_line_travel_order.csv", stringsAsFactors = FALSE)
 superBounds<-function(x)  {
   ORDERS_MAG<-2
   stopifnot(ORDERS_MAG %% 1 == 0)

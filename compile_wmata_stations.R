@@ -177,5 +177,17 @@ dfStations1<-augmentStation(openings, dfRmDups)
 
 trimmedStations<-trimStations(dfStations1)
 joinedLines<-augmentLines(dfStations1, linesByTravelOrder)
+
+# alter Silver Line to 2014 opening
+WIEHLE_OPENING<-as.data.frame(openings %>%
+  filter(grepl("Wiehle", nameCleaned)))$Opened
+
+silver<-joinedLines %>%
+  filter(LineCode == "SV") %>%
+  mutate(Opened=WIEHLE_OPENING)
+nonSilver<-joinedLines %>% filter(LineCode != "SV")
+joinedLines<-rbind(nonSilver, silver)
+joinedLines<-joinedLines[order(joinedLines$LineCode, joinedLines$SeqNum),]
+
 write.csv(trimmedStations, "concise_stations.csv", row.names = FALSE)
 write.csv(joinedLines, "stations_line_travel_order.csv", row.names = FALSE)
