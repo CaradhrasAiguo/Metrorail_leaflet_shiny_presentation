@@ -35,9 +35,12 @@ knit        : slidify::knit2slides
 --- .class #id
 
 ## The interactive expression used
+- The application is located <a href="https://caradhrasaiguo.shinyapps.io/metrorail_stations_timeline-updated/">here</a>
+- The source code is located  <a href ="https://github.com/CaradhrasAiguo/Metrorail_leaflet_shiny_presentation">here</a>
 - `concise` is the data frame of stations that were opened on or after the date specified by the slider, and does not contain "duplicates". It provides coordinates and other information for the markers that will be plotted for each station.
 - `lines` is the data frame of stations, repeated across lines and listed in traversal order. It is the input to `polyLines` that will draw segments between the station markers.
-```{r leaflet code, eval=FALSE, cache=FALSE}
+
+```r
 filteredData <- reactive({
   list(concise=dfConcise %>% filter(Opened <= input$histDate),
        lines=dfLines %>% filter(Opened <= input$histDate)

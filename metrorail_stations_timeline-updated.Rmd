@@ -8,19 +8,22 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-# require(knitr)
+require(knitr)
 library(dplyr)
 library(shiny)
 library(leaflet)
 # library(htmlwidgets)
 
-dir<-"C:/HY/Coursera/DS/9 Developing Data Products/Week 2 Leaflet"
-dfConcise<-read.csv(paste(dir, "Concise list of stations.csv", sep="/"),
-                    stringsAsFactors = FALSE)
+# setwd("C:/HY/Projects/Washington_Metro_leaflet")
+# dir<-"C:/HY/Projects/Washington_Metro_leaflet"
+dfConcise<-read.csv("concise_stations.csv", stringsAsFactors = FALSE)
+# dfConcise<-read.csv(paste(dir, "concise_stations.csv", sep="/"),
+#                     stringsAsFactors = FALSE)
 dfConcise<-dfConcise %>% mutate(Opened = as.Date(Opened))
-# lstLines<-lstRes$lines
-dfLines<-read.csv(paste(dir, "Stations in line travel order.csv", sep="/"),
-                  stringsAsFactors = FALSE)
+
+dfLines<-read.csv("stations_line_travel_order.csv", stringsAsFactors = FALSE)
+# dfLines<-read.csv(paste(dir, "stations_line_travel_order.csv", sep="/"),
+#                   stringsAsFactors = FALSE)
 superBounds<-function(x)  {
   ORDERS_MAG<-2
   stopifnot(ORDERS_MAG %% 1 == 0)

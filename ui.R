@@ -11,8 +11,8 @@ library(dplyr)
 library(shiny)
 library(leaflet)
 
-dir<-"C:/HY/Projects/Washington Metro leaflet"
-dfConcise<-read.csv(paste(dir, "Concise list of stations.csv", sep="/"),
+dir<-"C:/HY/Projects/Washington_Metro_leaflet"
+dfConcise<-read.csv(paste(dir, "Concise_stations.csv", sep="/"),
                     stringsAsFactors = FALSE)
 dfConcise<-dfConcise %>% mutate(Opened = as.Date(Opened))
 

@@ -1,7 +1,7 @@
 library(data.table)
 library(dplyr)
 
-setwd("C:/HY/Projects/Washington Metro leaflet")
+setwd("C:/HY/Projects/Washington_Metro_leaflet")
 # Assumes query_wmata_stations.py has been run, outputting a .CSV file
 prep<-function(fn)  {
   stopifnot(grepl("\\.csv$", fn))
@@ -177,5 +177,5 @@ dfStations1<-augmentStation(openings, dfRmDups)
 
 trimmedStations<-trimStations(dfStations1)
 joinedLines<-augmentLines(dfStations1, linesByTravelOrder)
-write.csv(trimmedStations, "Concise list of stations.csv", row.names = FALSE)
-write.csv(joinedLines, "Stations in line travel order.csv", row.names = FALSE)
+write.csv(trimmedStations, "concise_stations.csv", row.names = FALSE)
+write.csv(joinedLines, "stations_line_travel_order.csv", row.names = FALSE)
