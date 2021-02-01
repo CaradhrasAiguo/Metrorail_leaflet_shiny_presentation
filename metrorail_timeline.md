@@ -1,7 +1,6 @@
 Timeline of Washington Metrorail stations
 ========================================================
 author: Kevin H(Y) Shu
-date: 5 Oct 2018
 autosize: true
 
 Obtaining the data
@@ -26,7 +25,7 @@ Shiny app design overview
 The interactive expression used
 ========================================================
 - The application is located <a href="https://caradhrasaiguo.shinyapps.io/metrorail_stations_timeline-updated/">here</a>
-- The source code is located  <a href ="https://github.com/CaradhrasAiguo/Metrorail_leaflet_shiny_presentation">here</a>
+- The source code is located <a href ="https://github.com/FAE-Sonata/Metrorail_leaflet_shiny_presentation">here</a>
 - `concise` is the data frame of stations that were opened on or after the date specified by the slider, and does not contain "duplicates". It provides coordinates and other information for the markers that will be plotted for each station.
 - `lines` is the data frame of stations, repeated across lines and listed in traversal order. It is the input to `polyLines` that will draw segments between the station markers.
 
